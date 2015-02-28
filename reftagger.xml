@@ -34,9 +34,10 @@
 
       </script>
       <script>
+        var version = prefs.getString("bibleVersion");
         var refTagger = {
           settings: {
-            bibleVersion: prefs.getString("bibleVersion");
+            bibleVersion: version
           }
         };
       </script>
