@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs title="Article With RefTagger"/>
-    <UserPref name="bibleVersion" display_name="Translation" default_value="ESV" datatype="enum">
-      <EnumValue value="AMP" />
-       <EnumValue value="ASV" />
-       <EnumValue value="Darby" />
-       <EnumValue value="ESV" />
-       <EnumValue value="GW" />
-       <EnumValue value="HCSB" />
-       <EnumValue value="KJV" />
-     </UserPref>
     <UserPref name="Content" display_name="Content" default_value="Article Text" />
   <Content type="html"><![CDATA[
        <div id="content_div">
@@ -19,8 +10,6 @@
         var prefs = new gadgets.Prefs();
 
         function displayContent() {
-
-          window.bibleVersion = prefs.getString("bibleVersion");
           var element = document.getElementById('content_div');
 
           var content = prefs.getString("Content");
@@ -38,7 +27,7 @@
       <script>
         var refTagger = {
           settings: {
-            bibleVersion: window.bibleVersion;
+            bibleVersion: "ESV"
           }
         };
       </script>
