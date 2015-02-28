@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Preferences for RefTagger"/>
+   <Content type="html"><![CDATA[
+<p> I love John 3.16 </p>
+<script>
+  var refTagger = {
+    settings: {
+      bibleVersion: "ESV"     
+    }
+  };
+   </script>
+<script src = "https://api.reftagger.com/v2/RefTagger.js"></script>
+   ]]>
+  </Content>
+</Module>
