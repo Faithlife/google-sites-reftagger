@@ -19,6 +19,8 @@
         var prefs = new gadgets.Prefs();
 
         function displayContent() {
+
+          window.bibleVersion = prefs.getString("bibleVersion");
           var element = document.getElementById('content_div');
 
           var content = prefs.getString("Content");
@@ -34,10 +36,9 @@
 
       </script>
       <script>
-        var version = prefs.getString("bibleVersion");
         var refTagger = {
           settings: {
-            bibleVersion: version
+            bibleVersion: window.bibleVersion;
           }
         };
       </script>
