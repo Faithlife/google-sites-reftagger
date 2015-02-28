@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="Preferences for RefTagger"/>
-   <Content type="html"><![CDATA[
-<p> I love John 3.16 </p>
-<script>
-  var refTagger = {
-    settings: {
-      bibleVersion: "ESV"     
-    }
-  };
-   </script>
-<script src = "https://api.reftagger.com/v2/RefTagger.js"></script>
+  <ModulePrefs title="Article With RefTagger"/>
+    <UserPref name="bibleVersion" display_name="Translation" default_value="ESV" datatype="enum">
+      <EnumValue value="AMP" />
+       <EnumValue value="ASV" />
+       <EnumValue value="Darby" />
+       <EnumValue value="ESV" />
+       <EnumValue value="GW" />
+       <EnumValue value="HCSB" />
+       <EnumValue value="KJV" />
+     </UserPref>
+    <UserPref name="Content" display_name="Content" default_value="Article Text" />
+  <Content type="html"><![CDATA[
+       <div id="content_div">
+       </div>
+       <script type="text/javascript">
+        // Get userprefs
+        var prefs = new gadgets.Prefs();
+
+        function displayContent() {
+          var element = document.getElementById('content_div');
+
+          var content = prefs.getString("Content");
+
+          element.innerHTML = content;
+
+
+        }
+
+       // Pass the userprefs for this module instance to the function
+       // (allows users to include multiple module instances on their page)
+       gadgets.util.registerOnLoadHandler(displayContent);
+
+      </script>
+      <script>
+        var refTagger = {
+          settings: {
+            bibleVersion: prefs.getString("bibleVersion");
+          }
+        };
+      </script>
+      <script src = "https://api.reftagger.com/v2/RefTagger.js"></script>
    ]]>
   </Content>
 </Module>
